@@ -18,12 +18,16 @@ class ProductCategorySeeder extends Seeder
         ProductCategory::insert(
             [
                 [
-                    'name' => 'Casual',
-                    'description' => 'Casual Shoes'
+                    'name' => 'Sports',
+                    'description' => 'Sports Shoes'
                 ],
                 [
-                    'name' => 'Sport',
-                    'description' => 'Sport Shoes'
+                    'name' => 'Canvas',
+                    'description' => 'Canvas Shoes'
+                ],
+                [
+                    'name' => 'Warrior',
+                    'description' => 'Warrior Shoes'
                 ],
             ]
         );

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Store;
+use App\Models\OrderDetail;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class StoreSeeder extends Seeder
+class OrderDetailSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,12 @@ class StoreSeeder extends Seeder
      */
     public function run()
     {
-        Store::create([
-            'user_id' => 1,
-            'name' => 'Test Store',
-            'description' => 'Test Store 123'
+        OrderDetail::create([
+            'product_id' => 1,
+            'order_id' => 1,
+            'amount' => 1000000,
+            'quantity' => 1,
+            'subtotal' => 1000000
         ]);
     }
 }
