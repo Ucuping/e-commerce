@@ -16,16 +16,12 @@ class OrderSeeder extends Seeder
     public function run()
     {
         Order::create([
-            'user_id' => 1,
-            'product_id' => 1,
+            'customer_id' => 1,
             'name' => 'Nike Order',
-            'address' => 'Srono',
             'payment_method' => 'transfer',
             'delivery_method' => 'non-cod',
             'order_date' => '2022-05-30',
             'pay' => 1000000,
-            'quantity' => 1,
-            'amount' => 1000000,
         ]);
     }
 }

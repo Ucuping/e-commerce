@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('store_id');
+            $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('product_category_id');
             $table->string('name');
             $table->double('price');
             $table->integer('stock');
             $table->string('image')->nullable();
             $table->text('description')->nullable();
-            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

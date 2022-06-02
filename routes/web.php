@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Frontend\Auth\AuthController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Frontend\Home\HomeController;
-use App\Http\Controllers\Frontend\Main\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +28,7 @@ Route::get('/checkout', [HomeController::class, 'co'])->name('checkout');
 // Route::get('/cart', function(){
 //     return view('cart');
 // });
+
+Route::prefix('sellers')->group(function () {
+    Route::get('', [ProductController::class, 'index']);
+});

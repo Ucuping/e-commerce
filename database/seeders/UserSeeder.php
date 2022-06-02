@@ -19,18 +19,18 @@ class UserSeeder extends Seeder
         User::insert(
             [
                 [
-                    'name' => 'root',
-                    'username' => 'root',
-                    'email' => 'root@mail.com',
-                    'password' => Hash::make('root'),
-                    'type' => 'seller'
+                    'customer_id' => null,
+                    'seller_id' => 1,
+                    'username' => 'riris',
+                    'email' => 'riris@mail.com',
+                    'password' => Hash::make('1234'),
                 ],
                 [
-                    'name' => 'andi',
+                    'customer_id' => 1,
+                    'seller_id' => null,
                     'username' => 'andi',
                     'email' => 'andi@mail.com',
                     'password' => Hash::make('1234'),
-                    'type' => 'customer'
                 ],
             ]
         );

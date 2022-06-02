@@ -18,16 +18,16 @@ class ProductSeeder extends Seeder
         Product::insert(
             [
                 [
-                    'store_id' => 1,
+                    'brand_id' => 1,
                     'product_category_id' => 1,
-                    'name' => 'Nike',
+                    'name' => 'Nike Air Hurache',
                     'price' => 1000000,
                     'stock' => 10,
                     'image' => 'nike-air-hurache.webp',
                     'description' => 'Nike Limited',
                 ],
                 [
-                    'store_id' => 1,
+                    'brand_id' => 2,
                     'product_category_id' => 2,
                     'name' => 'Adidas',
                     'price' => 1500000,
