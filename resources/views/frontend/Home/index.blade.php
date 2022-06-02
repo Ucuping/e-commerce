@@ -64,7 +64,7 @@
             <div class="card ecommerce-card">
                 <div class="card-content">
                     <div class="item-img text-center">
-                        <a href="app-ecommerce-details.html">
+                        <a href="{{ route('detail') }}">
                             <img class="img-fluid" src="{{ asset('assets/images/products/' . $item['image']) }}" alt="img-placeholder"></a>
                     </div>
                     <div class="card-body">
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="item-name">
-                            <a href="app-ecommerce-details.html">{{ $item['product_name'] }}</a>
+                            <a href="{{ route('detail') }}">{{ $item['product_name'] }}</a>
                             <p class="item-company">By <span class="company-name">Nike</span></p>
                         </div>
                         <div>
@@ -107,7 +107,7 @@
                             <i class="fa fa-heart-o"></i> <span>Wishlist</span>
                         </div>
                         <div class="cart">
-                            <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="app-ecommerce-checkout.html" class="view-in-cart d-none">View In Cart</a>
+                            <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="{{ route('cart') }}" class="view-in-cart d-none">View In Cart</a>
                         </div>
                     </div>
                 </div>

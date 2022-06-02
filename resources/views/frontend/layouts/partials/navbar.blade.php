@@ -26,7 +26,7 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link"><i class="feather icon-shopping-cart"></i><span>Cart</span></a>
+                    <a href="{{ route('cart') }}" class="nav-link"><i class="feather icon-shopping-cart"></i><span>Cart</span></a>
                 </li>
             </ul>
         </div>
