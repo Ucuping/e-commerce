@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="item-name">
-                                        <a href="app-ecommerce-details.html">ADIDAS STAN SMITH WHITE GREEN ORIGINAL INDONESIA 100% BNWB</a>
+                                        <a href="{{ route('brands') }}">ADIDAS STAN SMITH WHITE GREEN ORIGINAL INDONESIA 100% BNWB</a>
                                         <span></span>
                                         <p class="item-company">By <span class="company-name">Adidas Official</span></p>
                                         <p class="stock-status-in">In Stock</p>

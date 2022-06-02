@@ -25,6 +25,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/product-detail', [HomeController::class, 'detail'])->name('detail');
 Route::get('/cart', [HomeController::class, 'keranjang'])->name('cart');
 Route::get('/checkout', [HomeController::class, 'co'])->name('checkout');
+Route::get('/brandshoes', [HomeController::class, 'brand'])->name('brands');
 // Route::get('/cart', function(){
 //     return view('cart');
 // });

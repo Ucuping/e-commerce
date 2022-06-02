@@ -48,7 +48,6 @@
                                     <h5>ADIDAS STAN SMITH WHITE GREEN ORIGINAL INDONESIA 100% BNWB</h5>
                                     <p class="text-muted">by Adidas Official</p>
                                     <div class="ecommerce-details-price d-flex flex-wrap">
-
                                         <p class="text-primary font-medium-3 mr-1 mb-0">RP500.000</p>
                                         <span class="pl-1 font-medium-3 border-left">
                                             <i class="feather icon-star text-warning"></i>

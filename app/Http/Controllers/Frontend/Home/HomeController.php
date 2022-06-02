@@ -81,4 +81,13 @@ class HomeController extends Controller
 
         return view('frontend.checkout.index', $data);
     }
+
+    public function brand()
+    {
+        $data = [
+            'title' => 'Brand Shoes'
+        ];
+
+        return view('frontend.brands.index', $data);
+    }
 }

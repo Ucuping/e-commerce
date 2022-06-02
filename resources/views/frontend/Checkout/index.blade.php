@@ -32,7 +32,7 @@
                 <div class="customer-card">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Alamat Pengiriman</h4>
+                            <h4 class="card-title">DELIVERY METHOD</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body actions">
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="item-name">
-                                        <a href="app-ecommerce-details.html">ADIDAS STAN SMITH WHITE GREEN ORIGINAL INDONESIA 100% BNWB</a>
+                                        <a href="{{ route('brands') }}">ADIDAS STAN SMITH WHITE GREEN ORIGINAL INDONESIA 100% BNWB</a>
                                         <span></span>
                                         <p class="item-company">By <span class="company-name">Adidas Official</span></p>
                                         <p class="stock-status-in">In Stock</p>
@@ -74,6 +74,29 @@
                             </div>
                         </div>
                 </section>
+
+                <div class="customer-card">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">PAYMENT METHOD</h4>
+                            <div class="card-body actions">
+                                <p class="mb-0 text-right">COD(Bayar di Tempat)</p>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body actions">
+                                <div class="text-right">
+                                    <p >Subtotal untuk Produk</p>
+                                    <p>Total Ongkos Kirim:</p>
+                                    <p>Biaya Penanganan</p>
+                                    <p>Total Pembayaran:</p>
+                                    <hr>
+                                <div class="btn btn-primary delivery-address">ORDER</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
