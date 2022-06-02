@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Frontend\Home\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -24,5 +25,5 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 
 Route::prefix('sellers')->group(function () {
-    Route::get('', [ProductController::class, 'index']);
+    Route::get('', [DashboardController::class, 'index']);
 });
