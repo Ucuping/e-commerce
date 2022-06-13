@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Permission;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Seeder;
 
 class PermissionSeeder extends Seeder
@@ -19,26 +19,35 @@ class PermissionSeeder extends Seeder
     {
         $webPermissions = collect([
             # Dashboard related permission
-            ['name' => 'read-dashboard'],
+            'read-dashboard',
 
-            # Product related permission
-            ['name' => 'read-product'],
+            # Products related permission
+            'read-products', 'create-products', 'update-products', 'delete-products',
 
             # Home related permission
-            ['name' => 'read-home'],
+            'read-home',
 
         ]);
 
         $this->insertPermission($webPermissions);
     }
 
+    /**
+     * insertPermission to "permissions" table
+     *
+     * Insert permission to database
+     * @param Illuminate\Support\Collection (optional) (default = 'web') $permissions
+     * @param string $guardName
+     *
+     * @return void
+     */
     private function insertPermission(Collection $permissions, $guardName = 'web')
     {
         Permission::insert($permissions->map(function ($permission) use ($guardName) {
             return [
-                'name' => $permission['name'],
+                'name' => $permission,
                 'guard_name' => $guardName,
-                'created_at' => Carbon::now()
+                'created_at' => Carbon::now(),
             ];
         })->toArray());
     }

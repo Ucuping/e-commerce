@@ -99,7 +99,7 @@
                                                             </fieldset>
                                                         </div>
                                                     </div>
-                                                    <a href="{{ route('login') }}" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
+                                                    <a href="{{ route('auth.login') }}" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
                                                     <button type="submit" class="btn btn-primary float-right btn-inline mb-50">Register</a>
                                                 </form>
                                             </div>
