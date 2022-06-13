@@ -17,17 +17,22 @@
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link"><i class="feather icon-home"></i><span>Beranda</span></a>
                 </li>
-                {{-- <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="index.html" data-toggle="dropdown"><i class="feather icon-home"></i><span data-i18n="Dashboard">Dashboard</span></a>
+                <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="index.html" data-toggle="dropdown"><i class="feather icon-home"></i><span data-i18n="Dashboard">Product Category</span></a>
                     <ul class="dropdown-menu">
-                        <li data-menu=""><a class="dropdown-item" href="dashboard-analytics.html" data-toggle="dropdown" data-i18n="Analytics"><i class="feather icon-activity"></i>Analytics</a>
-                        </li>
-                        <li data-menu=""><a class="dropdown-item" href="dashboard-ecommerce.html" data-toggle="dropdown" data-i18n="eCommerce"><i class="feather icon-shopping-cart"></i>eCommerce</a>
-                        </li>
+                        @php
+                            
+                            $productCategories = DB::table('product_categories')->get();
+                        @endphp
+                        @foreach ($productCategories as $item)
+                            <li data-menu=""><a class="dropdown-item" href="dashboard-analytics.html" data-toggle="dropdown" data-i18n="Analytics"><i class="feather icon-activity"></i>{{ $item->name }}</a>
+                            </li>
+                        @endforeach
                     </ul>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('cart') }}" class="nav-link"><i class="feather icon-shopping-cart"></i><span>Cart</span></a>
                 </li>
+
             </ul>
         </div>
     </div>

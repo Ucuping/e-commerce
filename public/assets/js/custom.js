@@ -194,7 +194,7 @@ const handleEvent = () => {
                             );
                     } else if (res.status == 500) {
                         var data = await res.response.json();
-                        notify("warning", 'aaa');
+                        notify("warning", data);
                     } else {
                         notify("success", "Success");
                     }
