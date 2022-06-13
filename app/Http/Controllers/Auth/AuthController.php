@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+use Exception;
 
 class AuthController extends Controller
 {
@@ -15,39 +15,59 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function check(Request $request){
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required'
-        ]);
+    public function check(Request $request)
+    {
+        try {
+            //code...
+            $request->validate([
+                'username' => 'required',
+                'password' => 'required'
+            ]);
 
-        $user = User::where('username', $request->username);
+            $user = User::where('username', $request->username);
 
-        if($user->count() > 0) {
-            if(Auth::attempt(['usermane' => $request->username, 'password' => $request->password])){
-                return response()->json([
-                    'message' => 'Login success',
-                    'redirect' => Auth::user()->roles[0]->name ==
-                    'Partner' ? route('dashbord.partner') : route('dashboard')
-                ]);
-            }else {
+            if ($user->count() > 0) {
+                if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+                    // if (Auth::user()->roles[0]->name == 'Seller') {
+                    //     return redirect()->route('sellers.dashboard');
+                    // } else {
+                    //     return redirect()->route('home');
+                    // }
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => 'Login Success',
+                        'redirect' => Auth::user()->roles[0]->name == 'Seller' ? route('sellers.dashboard') : route('home')
+                    ], 302);
+                } else {
+                    return response()->json([
+                        'errors' => [
+                            'password' => ["Wrong password"]
+                        ]
+                    ], 422);
+                }
+            } else {
                 return response()->json([
                     'errors' => [
-                        'password' => ["Wrong password"]
+                        'username' => ['Username has not registered']
                     ]
                 ], 422);
             }
-        } else {
+        } catch (Exception $e) {
             return response()->json([
-                'errors' => [
-                    'username' => ['username has not registered']
-                ]
-                ], 422);
+                'message' => $e->getMessage(),
+                'trace' => $e->getTrace()
+            ], 500);
         }
     }
 
     public function register()
     {
         return view('auth.register');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('auth.login');
     }
 }

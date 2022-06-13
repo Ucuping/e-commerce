@@ -9,6 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <title>Login | E-commerce</title>
     <link rel="apple-touch-icon" href="{{ asset('app-assets/images/ico/apple-icon-120.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/ico/favicon.ico') }}">
@@ -67,9 +68,11 @@
                                         <p class="px-2">Welcome back, please login to your account.</p>
                                         <div class="card-content">
                                             <div class="card-body pt-1">
-                                                <form action="index.html">
+                                                <form action="{{ route('auth.check') }}" data-request="ajax" method="POST" data-redirect="true">
+                                                    @csrf
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        <input type="text" class="form-control" id="user-name" placeholder="Username" required>
+                                                        <input type="text" class="form-control" id="user-name"
+                                                        name="username" placeholder="Username" required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
@@ -77,7 +80,8 @@
                                                     </fieldset>
 
                                                     <fieldset class="form-label-group position-relative has-icon-left">
-                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" required>
+                                                        <input type="password" class="form-control" id="user-password" 
+                                                        name="password" placeholder="Password" required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
                                                         </div>
@@ -99,7 +103,7 @@
                                                         </div>
                                                         <div class="text-right"><a href="auth-forgot-password.html" class="card-link">Forgot Password?</a></div>
                                                     </div>
-                                                    <a href="{{ route('register') }}" class="btn mb-2 btn-outline-primary float-left btn-inline">Register</a>
+                                                    <a href="{{ route('auth.register') }}" class="btn mb-2 btn-outline-primary float-left btn-inline">Register</a>
                                                     <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
                                                 </form>
                                             </div>
@@ -117,22 +121,24 @@
     <!-- END: Content-->
 
 
-    <!-- BEGIN: Vendor JS-->
-    <script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
-    <!-- BEGIN Vendor JS-->
+   <!-- BEGIN: Vendor JS-->
+   <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+   <script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
+   <script src="{{ asset('app-assets/vendors/notify/js/bootstrap-notify.min.js') }}"></script>
+   <!-- BEGIN Vendor JS-->
 
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ asset('app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
-    <!-- END: Page Vendor JS-->
+   <!-- BEGIN: Page Vendor JS-->
+   <!-- END: Page Vendor JS-->
 
-    <!-- BEGIN: Theme JS-->
-    <script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
-    <script src="{{ asset('app-assets/js/core/app.js') }}"></script>
-    <script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
-    <!-- END: Theme JS-->
+   <!-- BEGIN: Theme JS-->
+   <script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
+   <script src="{{ asset('app-assets/js/core/app.js') }}"></script>
+   <script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
+   <script src="{{ asset('assets/js/custom.js') }}"></script>
+   <!-- END: Theme JS-->
 
-    <!-- BEGIN: Page JS-->
-    <!-- END: Page JS-->
+   <!-- BEGIN: Page JS-->
+   <!-- END: Page JS-->
 
 </body>
 <!-- END: Body-->

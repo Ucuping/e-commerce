@@ -21,14 +21,14 @@ class RoleSeeder extends Seeder
             'guard_name' => 'web'
         ]);
 
-        $customer = Customer::create([
+        $customer = Role::create([
             'name' => 'Customer',
             'guard_name' => 'web'
         ]);
 
         $seller->givePermissionTo([
             'read-dashboard',
-            'read-product'
+            'read-products', 'create-products', 'update-products', 'delete-products',
         ]);
 
         $customer->givePermissionTo([

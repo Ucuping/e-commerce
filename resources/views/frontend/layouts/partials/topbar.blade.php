@@ -102,7 +102,7 @@
                             <a class="dropdown-item" href="app-email.html"><i class="feather icon-mail"></i> My Inbox</a>
                             {{-- <a class="dropdown-item" href="app-todo.html"><i class="feather icon-check-square"></i> Task</a> --}}
                             {{-- <a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a> --}}
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('login') }}"><i class="feather icon-power"></i> Logout</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ getInfoLogin() != null ? route('auth.logout') : route('auth.login')}}"><i class="feather icon-power"></i> {{ getInfoLogin() != null ? 'Logout' : 'Login' }}</a>
                         </div>
                     </li>
                 </ul>

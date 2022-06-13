@@ -16,23 +16,24 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::insert(
+        User::create(
             [
-                [
-                    'customer_id' => null,
-                    'seller_id' => 1,
-                    'username' => 'riris',
-                    'email' => 'riris@mail.com',
-                    'password' => Hash::make('1234'),
-                ],
-                [
-                    'customer_id' => 1,
-                    'seller_id' => null,
-                    'username' => 'andi',
-                    'email' => 'andi@mail.com',
-                    'password' => Hash::make('1234'),
-                ],
+                'customer_id' => null,
+                'seller_id' => 1,
+                'username' => 'riris',
+                'email' => 'riris@mail.com',
+                'password' => Hash::make('1234'),
+            ],
+        )->assignRole('Seller');
+
+        User::create(
+            [
+                'customer_id' => 1,
+                'seller_id' => null,
+                'username' => 'andi',
+                'email' => 'andi@mail.com',
+                'password' => Hash::make('1234'),
             ]
-        );
+        )->assignRole('Customer');
     }
 }

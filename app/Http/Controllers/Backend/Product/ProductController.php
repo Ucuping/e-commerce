@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Backend\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
 {
@@ -15,10 +17,16 @@ class ProductController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Product'
+            'title' => 'Product',
+            'mods' => 'product'
         ];
 
         return view('backend.product.index', $data);
+    }
+
+    public function getData()
+    {
+        return DataTables::of(Product::with('productCategory')->get())->make(true);
     }
 
     /**
