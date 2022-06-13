@@ -23,25 +23,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrum-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="content-body">
                 <!-- app ecommerce details start -->
                 <section class="app-ecommerce-details">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row mb-5 mt-2">
-                                <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <img src="https://i.ibb.co/Hd9LM6J/2.jpg" 
-                                        class="img-fluid" alt="product image">
+                                        class="img-fluid" alt="product image" width="350" height="350">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -59,14 +51,6 @@
                                         <span class="ml-50 text-dark font-medium-3">424 ratings</span>
                                     </div>
                                     <hr>
-                                    <p>👉PRODUK ORIGINAL yang kami jual ini adalah BNWB (Brand New With Box) : merupakan barang bocoran pabrik.
-                                        Jadi sepatu keluar dari pabrik tanpa box dan sebagian tanpa tag label size resmi, lalu diganti dengan box dan tag lain dengan brand yang sama.
-                                        Jadi barang original yang kami jual ssb : box replaced dan Sebagian banyak tidak memiliki kode artikel Remi / sesuai dengan sepatu jika di cek art di google.
-                                        Original BNWB hanya beberapa sepatu tidak terlihat rapih dibagian sisi sepatu dan itu hanya di bagian tertentu. 
-                                        seperti overlem ( lem terlihat ) namun tidak terlihat secara visual waktu digunakan dari jarak sudut pandang orang lain dengan posisi sama" berdiri. 
-                                        Kami sudah pasti melakukan Finishing Sebelum Di kirim. Dengan Menghilangkan sebagian lem yang terlihat di sisi sepatu dengan cairan khusus dari pabrik. 
-                                        Sehingga menyebabkan bau seperti lem, padahal itu cairan untuk membersikan lem di bagian sisi sepatu.
-                                        Untuk materialnya (upper & outsole) Saya Menjamin Original Indonesia Sama Seperti Di Store Remi.</p>
                                     <p class="font-weight-bold mb-25"> <i class="feather icon-truck mr-50 font-medium-2"></i>Free Shipping
                                     </p>
                                     <p class="font-weight-bold"> <i class="feather icon-dollar-sign mr-50 font-medium-2"></i>EMI options available
@@ -106,8 +90,8 @@
                                     <p>Available - <span class="text-success">In stock</span></p>
 
                                     <div class="d-flex flex-column flex-sm-row">
-                                        <button class="btn btn-outline-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i>ADD TO CART</button>
-                                        <button class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i></i>BUY NOW</button>
+                                        <button class="btn btn-outline-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i><a href="{{ route('cart') }}">ADD TO CART</a></button>
+                                        <button class="btn btn-outline-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i></i><a href="{{ route('checkout') }}">BUY NOW</a></button>
                                     </div>
                                     <hr>
                                     <button type="button" class="btn btn-icon rounded-circle btn-outline-primary mr-1 mb-1"><i class="feather icon-facebook"></i></button>
@@ -117,168 +101,141 @@
                                 </div>
                             </div>
                         </div>
-                        
+                    </div>
+                </section>
+                <!-- app ecommerce details end -->
+
+                <!-- app ecommerce brand start -->
+                <section class="app-ecommerce-details">
+                    <div class="card">
                         <div class="card-body">
-                            <div class="mt-4 mb-2 text-center">
-                                <h2>RELATED PRODUCTS</h2>
-                                <p>People also search for this items</p>
-                            </div>
-                            <div class="swiper-responsive-breakpoints swiper-container px-4 py-2">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide rounded swiper-shadow">
-                                        <div class="item-heading">
-                                            <p class="text-truncate mb-0">
-                                                Adidas Grand Court White Black Original Bnwb
-                                            </p>
-                                            <p>
-                                                <small>by</small>
-                                                <small>Adidas Official</small>
-                                            </p>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto my-2 py-75">
-                                            <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="product-rating">
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-secondary"></i>
-                                            </div>
-                                            <p class="text-primary mb-0">RP530.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide rounded swiper-shadow">
-                                        <div class="item-heading">
-                                            <p class="text-truncate mb-0">
-                                                ADIDAS STAN SMITH FULL WHITE ORIGINAL INDONESIA BNWB, SEPATU PRIA PUTIH POLOS
-                                            </p>
-                                            <p>
-                                                <small>by</small>
-                                                <small>Stars Adidas</small>
-                                            </p>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto my-2 py-75">
-                                            <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="product-rating">
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-secondary"></i>
-                                            </div>
-                                            <p class="text-primary mb-0">RP700.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide rounded swiper-shadow">
-                                        <div class="item-heading">
-                                            <p class="text-truncate mb-0">
-                                                Adidas Neo Advantage Full White Origial Indonesia, Sepatu wanita putih polos Sepatu couple putih
-                                            </p>
-                                            <p>
-                                                <small>by</small>
-                                                <small>Adidas Sport</small>
-                                            </p>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto my-3 py-50">
-                                            <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="product-rating">
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-secondary"></i>
-                                            </div>
-                                            <p class="text-primary mb-0">RP800.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide rounded swiper-shadow">
-                                        <div class="item-heading">
-                                            <p class="text-truncate mb-0">
-                                                Adidas Hoops 2.0 High White Black Original BNWB, Sneakers Pria
-                                            </p>
-                                            <p>
-                                                <small>by</small>
-                                                <small>Adidas</small>
-                                            </p>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto my-2 py-75">
-                                            <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="product-rating">
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-secondary"></i>
-                                            </div>
-                                            <p class="text-primary mb-0">RP950.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide rounded swiper-shadow">
-                                        <div class="item-heading">
-                                            <p class="text-truncate mb-0">
-                                                ADIDAS COUNTRY WHITE GREEN SOL GUM ORIGINAL
-                                            </p>
-                                            <p>
-                                                <small>by</small>
-                                                <small>Adidas.id</small>
-                                            </p>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto my-2 py-75">
-                                            <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="product-rating">
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                            </div>
-                                            <p class="text-primary mb-0">RP690.000</p>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide rounded swiper-shadow">
-                                        <div class="item-heading">
-                                            <p class="text-truncate mb-0">
-                                                ADIDAS BECKENBAUER LEATHER BLACK GUM ORIGINAL INDONESIA 100% BNWB, SNEAKERS PRIA ORIGINAL BIG SIZE
-                                            </p>
-                                            <p>
-                                                <small>by</small>
-                                                <small>Adidas Store</small>
-                                            </p>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto my-2 py-75">
-                                            <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
-                                        </div>
-                                        <div class="item-meta">
-                                            <div class="product-rating">
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-warning"></i>
-                                                <i class="feather icon-star text-secondary"></i>
-                                            </div>
-                                            <p class="text-primary mb-0">RP760.000</p>
-                                        </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-3 d-flex align-items-center mb-2 mb-md-0 px-5">
+                                    <div class="d-flex align-items-center md-2 ">
+                                        <img src="https://i.ibb.co/Hd9LM6J/2.jpg" class="rounded-circle" alt="product image" width="170" height="170">
                                     </div>
                                 </div>
-                                <!-- Add Arrows -->
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-
+                                <div class="col-12 col-md-5 mt-2">
+                                    <h5><b>ADIDAS_STORE</b></h5>
+                                    <p class="text-muted">3 hours ago</p>
+                                        <button class="btn btn-outline-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i></i> <a href="{{ route('brands') }}"">VISIT BRAND</a></button>
+                                        <button class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i></i>FOLLOW</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <!-- app ecommerce details end -->
+
+                <section class="app-ecommerce-details">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="card-body col-sm-12">
+                                    <div class="text-center">
+                                        <h2>SPESIFICATION PRODUCT</h2>
+                                        <p>People also search for this items</p>
+                                    </div>
+                                    <div class="swiper-responsive-breakpoints swiper-container px-4 py-2">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide rounded swiper-shadow">
+                                                <p>Merk - <span class="text-primary">by Adidas</span></p>
+                                                <p>height shoes - <span>Rendah</span></p>
+                                                <p>Stock - <span class="text-primary">100</span></p>
+                                                <p>Send from - <span>TANGERANG</span></p>
+                                                <hr>
+                                            </div>
+                                            <div class="swiper-slide rounded swiper-shadow">
+                                                <div class="text-center">
+                                                    <h2>DESCRIPTIONS PRODUCT</h2>
+                                                </div>
+                                                <div class="swiper-responsive-breakpoints swiper-container py-2">
+                                                    <p>=>> BELI SEKARANG SEBELUM STOK HABIS DAN HARGA NAIK.!</p>
+                                                    <p>=>> DIHARAPKAN MEMBACA CATATAN ATAU DESKRIPSI TOKO SEBELUM ORDER..</p>
+                                                    <p>=>> TULISKAN VARIAN WARNA DI KOLOM CATATAN BESERTA UKURAN YG DIINGINKAN.</p>
+                                                    <p>➡MENGENAI PRODUK KAMI.</p>
+                                                    <p class="text-justify">👉PRODUK ORIGINAL yang kami jual ini adalah BNWB (Brand New With Box) : merupakan barang bocoran pabrik.
+                                                        Jadi sepatu keluar dari pabrik tanpa box dan sebagian tanpa tag label size resmi, lalu diganti dengan box dan tag lain dengan brand yang sama.
+                                                        Jadi barang original yang kami jual ssb : box replaced dan Sebagian banyak tidak memiliki kode artikel Remi / sesuai dengan sepatu jika di cek art di google.
+                                                        Original BNWB hanya beberapa sepatu tidak terlihat rapih dibagian sisi sepatu dan itu hanya di bagian tertentu. 
+                                                        seperti overlem ( lem terlihat ) namun tidak terlihat secara visual waktu digunakan dari jarak sudut pandang orang lain dengan posisi sama" berdiri. 
+                                                        Kami sudah pasti melakukan Finishing Sebelum Di kirim. Dengan Menghilangkan sebagian lem yang terlihat di sisi sepatu dengan cairan khusus dari pabrik. 
+                                                        Sehingga menyebabkan bau seperti lem, padahal itu cairan untuk membersikan lem di bagian sisi sepatu.
+                                                        Untuk materialnya (upper & outsole) Saya Menjamin Original Indonesia Sama Seperti Di Store Remi.
+                                                    </p>
+                                                    <p>NOTE : </p>
+                                                    <p>- Tidak bisa refund karena alasan salah pesan/berubah pikiran/kebesaran/kekecilan </p>
+                                                    <p>- Tidak bisa mengganti alamat, mohon agar mencantumkan alamat dengan benar </p>
+                                                    <p>- Menerima return hanya dengan produk yang sama dan permasalahan hanya jikalau pada ukuran atau
+                                                        atas kesalahan kami</p>
+                                                    <p>#sepatu #sepatuadidas #sepatuadidassuperstar #adidassuperstaroriginal #sneakersadidas #sneakerscasual #adidassuperstarog #adisassuperstarfoundation #adisasoriginal</p>
+                                                </div>
+                                                <hr>
+                                            </div>
+                                            <div class="swiper-slide rounded swiper-shadow">
+                                                <div class="text-center">
+                                                    <h2>RELATED PRODUCT</h2>
+                                                </div>
+                                            <div class="swiper-responsive-breakpoints swiper-container py-2">
+                                            <div class="swiper-slide rounded swiper-shadow">
+                                                <div class="item-heading">
+                                                    <p class="text-truncate mb-0">
+                                                        ADIDAS COUNTRY WHITE GREEN SOL GUM ORIGINAL
+                                                    </p>
+                                                    <p>
+                                                        <small>by</small>
+                                                        <small>Adidas.id</small>
+                                                    </p>
+                                                </div>
+                                                <div class="img-container w-50 mx-auto my-2 py-75">
+                                                    <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="product-rating">
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-warning"></i>
+                                                    </div>
+                                                    <p class="text-primary mb-0">RP690.000</p>
+                                                </div>
+                                                <hr>
+                                            </div>
+                                            <div class="swiper-slide rounded swiper-shadow">
+                                                <div class="item-heading">
+                                                    <p class="text-truncate mb-0">
+                                                        ADIDAS BECKENBAUER LEATHER BLACK GUM ORIGINAL INDONESIA 100% BNWB, SNEAKERS PRIA ORIGINAL BIG SIZE
+                                                    </p>
+                                                    <p>
+                                                        <small>by</small>
+                                                        <small>Adidas Store</small>
+                                                    </p>
+                                                </div>
+                                                <div class="img-container w-50 mx-auto my-2 py-75">
+                                                    <img src="https://i.ibb.co/Hd9LM6J/2.jpg"  class="img-fluid" alt="image">
+                                                </div>
+                                                <div class="item-meta">
+                                                    <div class="product-rating">
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-warning"></i>
+                                                        <i class="feather icon-star text-secondary"></i>
+                                                    </div>
+                                                    <p class="text-primary mb-0">RP760.000</p>
+                                                </div>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
 
             </div>
         </div>
