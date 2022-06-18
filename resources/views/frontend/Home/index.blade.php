@@ -43,12 +43,14 @@
     <section id="ecommerce-searchbar">
         <div class="row mt-1">
             <div class="col-sm-12">
-                <fieldset class="form-group position-relative">
-                    <input type="text" class="form-control search-product" id="iconLeft5" placeholder="Search here">
-                    <div class="form-control-position">
-                        <i class="feather icon-search"></i>
-                    </div>
-                </fieldset>
+                <form action="{{ route('home') }}" method="get">
+                    <fieldset class="form-group position-relative">
+                        <input type="text" class="form-control search-product" name="search" id="iconLeft5" placeholder="Search here">
+                        <div class="form-control-position">
+                            <button type="submit"><i class="feather icon-search"></i></button>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </section>
@@ -56,63 +58,65 @@
 
     <!-- Ecommerce Products Starts -->
     <section id="ecommerce-products" class="grid-view">
-        @foreach ($products as $item)
-        {{-- @php
-            dd($item['image']);
-        @endphp --}}
-            
-            <div class="card ecommerce-card">
-                <div class="card-content">
-                    <div class="item-img text-center">
-                        <a href="{{ route('detail') }}">
-                            <img class="img-fluid" src="{{ asset('assets/images/products/' . $item['image']) }}" alt="img-placeholder"></a>
-                    </div>
-                    <div class="card-body">
-                        <div class="item-wrapper">
-                            <div class="item-rating">
-                                <div class="badge badge-primary badge-md">
-                                    <span>4</span> <i class="feather icon-star"></i>
-                                </div>
+        @forelse ($products as $item)
+        <div class="card ecommerce-card">
+            <div class="card-content">
+                <div class="item-img text-center">
+                    <a href="{{ route('detail') }}">
+                        <img class="img-fluid" src="{{ asset('assets/images/products/' . $item['image']) }}" alt="img-placeholder"></a>
+                </div>
+                <div class="card-body">
+                    <div class="item-wrapper">
+                        <div class="item-rating">
+                            <div class="badge badge-primary badge-md">
+                                <span>4</span> <i class="feather icon-star"></i>
                             </div>
-                            <div>
-                                <h6 class="item-price">
-                                    {{ $item['price'] }}
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="item-name">
-                            <a href="{{ route('detail') }}">{{ $item['product_name'] }}</a>
-                            <p class="item-company">By <span class="company-name">Nike</span></p>
                         </div>
                         <div>
-                            <p class="item-description">
-                                {{ $item['description'] }}
-                            </p>
+                            <h6 class="item-price">
+                                {{ $item['price'] }}
+                            </h6>
                         </div>
                     </div>
-                    <div class="item-options text-center">
-                        <div class="item-wrapper">
-                            <div class="item-rating">
-                                <div class="badge badge-primary badge-md">
-                                    <span>4</span> <i class="feather icon-star"></i>
-                                </div>
+                    <div class="item-name">
+                        <a href="{{ route('detail') }}">{{ $item['product_name'] }}</a>
+                        <p class="item-company">By <span class="company-name">Nike</span></p>
+                    </div>
+                    <div>
+                        <p class="item-description">
+                            {{ $item['description'] }}
+                        </p>
+                    </div>
+                </div>
+                <div class="item-options text-center">
+                    <div class="item-wrapper">
+                        <div class="item-rating">
+                            <div class="badge badge-primary badge-md">
+                                <span>4</span> <i class="feather icon-star"></i>
                             </div>
-                            <div class="item-cost">
-                                <h6 class="item-price">
-                                    {{ $item['price'] }}
-                                </h6>
-                            </div>
                         </div>
-                        <div class="wishlist">
-                            <i class="fa fa-heart-o"></i> <span>Wishlist</span>
+                        <div class="item-cost">
+                            <h6 class="item-price">
+                                {{ $item['price'] }}
+                            </h6>
                         </div>
-                        <div class="cart">
-                            <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="{{ route('cart') }}" class="view-in-cart d-none">View In Cart</a>
-                        </div>
+                    </div>
+                    <div class="wishlist">
+                        <i class="fa fa-heart-o"></i> <span>Wishlist</span>
+                    </div>
+                    <div class="cart">
+                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="{{ route('cart') }}" class="view-in-cart d-none">View In Cart</a>
                     </div>
                 </div>
             </div>
-        @endforeach
+        </div>
+        @empty
+            <h1 class="mt-2 mb-2 text-center">Product Not Found</h1>
+        @endforelse
+        {{-- @foreach ($products as $item)
+       
+            
+        @endforeach --}}
     </section>
     <!-- Ecommerce Products Ends -->
 

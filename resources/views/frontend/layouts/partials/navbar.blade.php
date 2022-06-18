@@ -24,7 +24,7 @@
                             $productCategories = DB::table('product_categories')->get();
                         @endphp
                         @foreach ($productCategories as $item)
-                            <li data-menu=""><a class="dropdown-item" href="dashboard-analytics.html" data-toggle="dropdown" data-i18n="Analytics"><i class="feather icon-activity"></i>{{ $item->name }}</a>
+                            <li data-menu=""><a class="dropdown-item" href="{{ route('home',['category'=>$item->name]) }}" data-toggle="dropdown" data-i18n="Analytics"><i class="feather icon-activity"></i>{{ $item->name }}</a>
                             </li>
                         @endforeach
                     </ul>

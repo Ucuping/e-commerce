@@ -8,12 +8,23 @@ use App\Models\Product;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $query = null;
+        if(isset($request->search) and $request->search != ''){
+            $query = Product::where('name', 'LIKE', '%' . $request->search . '%')->get();
+        } elseif(isset($request->category) and $request->category != '') {
+            $query = Product::whereHas('productCategory', function($q) use ($request){
+                $q->where('name', 'LIKE', '%' . $request->category . '%');
+            })->get();
+        }
+         else {
+            $query = Product::get();
+        }
         $data = [
             'title' => 'Main',
             'mods' => '',
-            'products' => Product::all()
+            'products' => $query
         ];
 
         return view('frontend.home.index', $data);
