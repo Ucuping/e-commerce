@@ -17,9 +17,9 @@
             <div class="card-body">
                 @can('create-products')
                     <div class="col-12 text-right mb-2">
-                        <button class="btn btn-primary waves-effect waves-light" data-toggle="ajax"
-                            data-target=""><i class="feather icon-plus"></i> Tambah
-                            Data</button>
+                        <a href="{{ route('sellers.products.create') }}" class="btn btn-primary waves-effect waves-light" data-toggle="ajax"
+                            data-target="{{ route('sellers.products.create') }}"><i class="feather icon-plus"></i> Tambah
+                            Data</a>
                     </div>
                 @endcan
                 <table class="table zero-configuration" id="dataTable" data-url="{{ route('sellers.products.getData') }}"

@@ -53,13 +53,13 @@ $(function () {
 //     }
 // };
 
-// const pushState = (url) => {
-//     history.pushState([], null, url);
+const pushState = (url) => {
+    history.pushState([], null, url);
 
-//     $(".navigation").find(".active").removeClass("active");
+    $(".navigation").find(".active").removeClass("active");
 
-//     // handleView();
-// };
+    // handleView();
+};
 
 // const fetchRes = async (url) => {
 //     const res = await fetch(url, {
@@ -194,7 +194,7 @@ const handleEvent = () => {
                             );
                     } else if (res.status == 500) {
                         var data = await res.response.json();
-                        notify("warning", data);
+                        notify("warning", data.message);
                     } else {
                         notify("success", "Success");
                     }

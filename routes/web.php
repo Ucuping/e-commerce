@@ -46,5 +46,10 @@ Route::prefix('sellers')->middleware('can:read-dashboard')->group(function () {
     Route::prefix('products')->middleware('can:read-products')->group(function () {
         Route::get('', [ProductController::class, 'index'])->name('sellers.products');
         Route::get('getData', [ProductController::class, 'getData'])->name('sellers.products.getData');
+        Route::get('create', [ProductController::class, 'create'])->name('sellers.products.create')->middleware('can:create-products');
+        Route::post('store', [ProductController::class, 'store'])->name('sellers.products.store')->middleware('can:create-products');
+        Route::get('{product}/edit', [ProductController::class, 'edit'])->name('sellers.products.edit')->middleware('can:update-products');
+        Route::post('{product}/update', [ProductController::class, 'update'])->name('sellers.products.update')->middleware('can:update-products');
+        Route::delete('{product}/delete', [ProductController::class, 'destroy'])->name('sellers.products.delete')->middleware('can:delete-products');
     });
 });
