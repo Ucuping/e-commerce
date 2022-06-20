@@ -57,7 +57,7 @@ table = initTable('#dataTable', [{
             var render = ``
 
             if (userPermissions.includes('update-products')) {
-                render += `<button class="btn btn-outline-primary btn-sm" onclick="editAcademicYear('${data}')"><i class="feather icon-edit"></i></button> `
+                render += `<a href="${$('meta[name=base-url]').attr('content')}/seller/products/${data}/edit" class="btn btn-outline-primary btn-sm"><i class="feather icon-edit"></i></a> `
             }
 
             if (userPermissions.includes('delete-products')) {

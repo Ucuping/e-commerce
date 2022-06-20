@@ -15,21 +15,23 @@
     <div class="card">
         <div class="card-content">
             <div class="card-body">
-                @can('create-products')
+                {{-- @can('create-products')
                     <div class="col-12 text-right mb-2">
                         <a href="{{ route('seller.products.create') }}" class="btn btn-primary waves-effect waves-light"><i class="feather icon-plus"></i> Tambah
                             Data</a>
                     </div>
-                @endcan
-                <table class="table zero-configuration" id="dataTable" data-url="{{ route('seller.products.getData') }}"
+                @endcan --}}
+                <table class="table zero-configuration" id="dataTable" data-url="{{ route('seller.orders.getData') }}"
                     width="100%">
                     <thead>
                         <th>No.</th>
-                        <th>Product Category</th>
+                        <th>Customer</th>
+                        <th>Product</th>
                         <th>Name</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>description</th>
+                        <th>Payment Method</th>
+                        <th>Delivery Method</th>
+                        <th>Order Date</th>
+                        <th>Pay</th>
                         <th></th>
                     </thead>
                 </table>

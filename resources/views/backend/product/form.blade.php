@@ -3,10 +3,10 @@
 @section('breadcrumb')
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{{ route('sellers.dashboard') }}">Home</a>
+            <a href="{{ route('seller.dashboard') }}">Home</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('sellers.products') }}">Siswa</a>
+            <a href="{{ route('seller.products') }}">Siswa</a>
         </li>
         <li class="breadcrumb-item active">
             {{ $title }}
@@ -22,9 +22,9 @@
                 <div class="card-content">
                     <div class="card-body">
                         <form
-                            action="{{ isset($product) ? route('sellers.products.update', ['product' => $product->id]) : route('sellers.products.store') }}"
-                            data-request="ajax" method="POST" data-success-callback="{{ route('sellers.products') }}"
-                            enctype="multipart/form-data" data-redirect>
+                            action="{{ isset($product) ? route('seller.products.update', ['product' => $product->id]) : route('seller.products.store') }}"
+                            data-request="ajax" method="POST" data-success-callback="{{ route('seller.products') }}"
+                            enctype="multipart/form-data" data-redirect="true">
                             <div class="form-group">
                                 <label for="product_category">Product Category <span class="text-danger">*</span></label>
                                 <select name="product_category_id" class="form-control" id="product_category">
@@ -66,7 +66,7 @@
                                 <textarea name="description" placeholder="Description" class="form-control" id="description" cols="30" rows="10">{{ isset($product) ? $product->description : '' }}</textarea>
                             </div>
                             <div class="text-right">
-                                <a href="{{ route('sellers.products') }}"
+                                <a href="{{ route('seller.products') }}"
                                     class="btn btn-outline-primary waves-effect waves-light">Back</a>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
                             </div>

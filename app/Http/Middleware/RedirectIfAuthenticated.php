@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
                 if (Auth::guard($guard)->user()->roles[0]->name == 'Customer') {
                     return redirect()->route('home');
                 } else if (Auth::guard($guard)->user()->roles[0] == 'Seller') {
-                    return redirect()->route('sellers.dashboard');
+                    return redirect()->route('seller.dashboard');
                 } else {
                     return redirect(RouteServiceProvider::HOME);
                 }

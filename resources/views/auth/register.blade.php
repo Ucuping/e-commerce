@@ -67,22 +67,63 @@
                                         <p class="px-2">Fill the below form to create a new account.</p>
                                         <div class="card-content">
                                             <div class="card-body pt-0">
-                                                <form action="index.html">
+                                                <form action="{{ route('auth.register.check') }}" method="POST" data-request="ajax" data-redirect="true" data-success-callback="{{ route('auth.login') }}">
+                                                    @csrf
                                                     <div class="form-label-group">
-                                                        <input type="text" id="inputName" class="form-control" placeholder="Name" required>
-                                                        <label for="inputName">Name</label>
+                                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                                                        <label for="name">Name</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required>
+                                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                                                        <label for="phone">Phone Number</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <textarea name="address" class="form-control" id="address" placeholder="Address" required></textarea>
+                                                        <label for="address">Address</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+                                                        <label for="username">Username</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required>
                                                         <label for="inputEmail">Email</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
                                                         <label for="inputPassword">Password</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="password" id="inputConfPassword" class="form-control" placeholder="Confirm Password" required>
+                                                        <input type="password" id="inputConfPassword" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
                                                         <label for="inputConfPassword">Confirm Password</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <ul class="list-unstyled mb-0">
+                                                            <li class="d-inline-block mr-2">
+                                                                <fieldset>
+                                                                    <div class="vs-radio-con">
+                                                                        <input type="radio" name="role" checked value="Customer">
+                                                                        <span class="vs-radio">
+                                                                            <span class="vs-radio--border"></span>
+                                                                            <span class="vs-radio--circle"></span>
+                                                                        </span>
+                                                                        <span class="">Customer</span>
+                                                                    </div>
+                                                                </fieldset>
+                                                            </li>
+                                                            <li class="d-inline-block mr-2">
+                                                                <fieldset>
+                                                                    <div class="vs-radio-con">
+                                                                        <input type="radio" name="role" value="Seller">
+                                                                        <span class="vs-radio">
+                                                                            <span class="vs-radio--border"></span>
+                                                                            <span class="vs-radio--circle"></span>
+                                                                        </span>
+                                                                        <span class="">Seller</span>
+                                                                    </div>
+                                                                </fieldset>
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="col-12">
@@ -118,7 +159,9 @@
 
 
     <!-- BEGIN: Vendor JS-->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/notify/js/bootstrap-notify.min.js') }}"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
@@ -129,6 +172,7 @@
     <script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
     <script src="{{ asset('app-assets/js/core/app.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->

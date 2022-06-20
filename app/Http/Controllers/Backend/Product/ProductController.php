@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
@@ -58,7 +59,8 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         try {
-            if ($request->hasFile('file')) {
+            // return dd($request->file('image'));
+            if ($request->hasFile('image')) {
                 $picName = $this->uploadImage($request);
             } else {
                 $picName = null;
@@ -81,7 +83,7 @@ class ProductController extends Controller
 
             return response()->json([
                 'message' => 'Data telah ditambahkan',
-                'redirect' => route('sellers.products')
+                'redirect' => route('seller.products')
             ]);
         } catch (Exception $e) {
             return response()->json([
@@ -108,9 +110,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        $data = [
+            'title' => 'Edit Product',
+            'mods' => 'create_product',
+            'product' => $product,
+            'productCategories' => ProductCategory::all(),
+            'action' => route('seller.products.update', $product->id)
+        ];
+
+        return view('backend.product.form', $data);
     }
 
     /**
@@ -120,9 +130,45 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Product $product, ProductRequest $request)
     {
-        //
+        try {
+            if ($request->hasFile('image')) {
+                $picName = null;
+
+                if ($product->image != null && file_exists(public_path('storage/images/products/' . $product->image))) {
+                    File::delete(public_path('storage/images/products/' . $product->image));
+                    $picName = $this->uploadImage($request);
+                }
+            } else {
+                $picName = null;
+            }
+
+            $brand = Brand::whereSellerId(auth()->user()->seller_id)->first();
+
+            $request->merge(['image' => $picName]);
+            $product->update(
+                [
+                    'brand_id' => $brand->id,
+                    'product_category_id' => $request->product_category_id,
+                    'name' => $request->name,
+                    'price' => $request->price,
+                    'stock' => $request->stock,
+                    'image' => $picName,
+                    'description' => $request->description,
+                ]
+            );
+
+            return response()->json([
+                'message' => 'Data telah diperbarui',
+                'redirect' => route('seller.products')
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+                'trace' => $e->getTrace()
+            ], 500);
+        }
     }
 
     /**
@@ -131,15 +177,31 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        try {
+            $product->delete();
+
+            if ($product->image != null && file_exists(public_path('storage/images/products/' . $product->image))) {
+                File::delete(public_path('storage/images/products/' . $product->image));
+            }
+
+            return response()->json([
+                'message' => 'Data telah dihapus',
+                'redirect' => route('seller.products')
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+                'trace' => $e->getTrace()
+            ], 500);
+        }
     }
 
     private function uploadImage(Request $request)
     {
         $path = public_path('assets/images/products');
-        $file = $request->file('file');
+        $file = $request->file('image');
         $filename = 'Products_' . rand(0, 9999999999) . '_' . rand(0, 9999999999) . '.';
         $filename .= $file->getClientOriginalExtension();
         $file->move($path, $filename);

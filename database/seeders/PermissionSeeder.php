@@ -24,6 +24,9 @@ class PermissionSeeder extends Seeder
             # Products related permission
             'read-products', 'create-products', 'update-products', 'delete-products',
 
+            # Products related permission
+            'read-orders', 'create-orders', 'update-orders', 'delete-orders',
+
             # Home related permission
             'read-home',
 

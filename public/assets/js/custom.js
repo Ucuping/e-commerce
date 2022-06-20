@@ -174,10 +174,11 @@ const handleEvent = () => {
                 }
 
                 if ($(this).data("redirect")) {
-                    var data = await res.response.json();
-                    window.location.assign(data.redirect);
+                    // var data = await res.response.json();
+                    // console.log(await res.response)
+                    window.location.assign($(this).data('success-callback'));
                 } else {
-                    var data = await res.response.json();
+                    // var data = await res.response.json();
                     pushState(data.redirect);
                 }
             } else {
@@ -251,10 +252,10 @@ const deleteConfirmation = (el) => {
                 notify("success", data.message);
 
                 // if (typeof table == "undefined") handleView();
-                // else table.ajax.reload();
-                window.location.assign(
-                    data.redirect
-                );
+                table.ajax.reload();
+                // window.location.assign(
+                //     data.redirect
+                // );
             } else {
                 if (res.status == 401) {
                     window.location.reload();

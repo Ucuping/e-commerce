@@ -15,21 +15,21 @@
             {{-- <li class=" navigation-header"><span>Dashboard</span>
             </li> --}}
             @can('read-dashboard')
-                <li class=" nav-item"><a href="{{ route('sellers.dashboard') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Email">Dashboard</span></a>
+                <li class=" nav-item"><a href="{{ route('seller.dashboard') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Email">Dashboard</span></a>
             @endcan
 
             <li class=" navigation-header"><span>Apps</span>
             </li>
-            <li class=" nav-item"><a href="{{ route('sellers.products') }}"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Email">Product</span></a>
+            <li class=" nav-item"><a href="{{ route('seller.products') }}"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Email">Product</span></a>
             </li>
-            <li class=" nav-item"><a href="app-chat.html"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Chat">Order</span></a>
+            <li class=" nav-item"><a href="{{ route('seller.orders') }}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Chat">Order</span></a>
             </li>
-            <li class=" nav-item"><a href="app-email.html"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Email">Edit Profile</span></a>
+            
+            <li class=" navigation-header"><span>Settings</span>
             </li>
-
-            <li class=" navigation-header"><span>Setting</span>
+            <li class=" nav-item"><a href="app-email.html"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Email">Profile</span></a>
             </li>
-            <li class=" nav-item"><a href="app-email.html"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Email">Setting Brand</span></a>
+            <li class=" nav-item"><a href="app-email.html"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Email">Brand</span></a>
             </li>
         </ul>
     </div>
