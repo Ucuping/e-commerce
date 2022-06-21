@@ -26,11 +26,36 @@
 <!-- END: Footer-->
 
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
 <!-- BEGIN: Vendor JS-->
 <script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
+<script src="{{ asset('app-assets/vendors/js/extensions/tether.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/extensions/shepherd.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/notify/js/bootstrap-notify.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/forms/select/select2.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/dropify/js/dropify.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/pdfmake.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/vfs_fonts.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.buttons.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/dataTables.checkboxes.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/datatables-select/dataTables.select.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/datatables-buttons/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/datepicker/datepicker.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/autonumeric/autoNumeric.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/daterangepicker/moment.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/ui/prism.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/extensions/wNumb.js') }}"></script>
@@ -46,5 +71,6 @@
 
 <!-- BEGIN: Page JS-->
 <script src="{{ asset('app-assets/js/scripts/pages/app-ecommerce-shop.js') }}"></script>
+<script src="{{ asset('assets/js/app.js') }}"></script>
 <!-- END: Page JS-->
 @endsection

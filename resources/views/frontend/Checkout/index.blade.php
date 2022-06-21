@@ -18,7 +18,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="{{ route('detail') }}">Details</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="{{ route('cart') }}">Carts</a>
+                                    <li class="breadcrumb-item"><a href="{{ route('carts') }}">Carts</a>
                                     </li>
                                     <li class="breadcrumb-item active">Checkout
                                     </li>

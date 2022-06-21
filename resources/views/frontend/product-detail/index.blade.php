@@ -90,7 +90,7 @@
                                     <p>Available - <span class="text-success">In stock</span></p>
 
                                     <div class="d-flex flex-column flex-sm-row">
-                                        <button class="btn btn-outline-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i><a href="{{ route('cart') }}">ADD TO CART</a></button>
+                                        <button class="btn btn-outline-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i class="feather icon-shopping-cart mr-25"></i><a href="{{ route('carts') }}">ADD TO CART</a></button>
                                         <button class="btn btn-outline-primary mr-0 mr-sm-1 mb-1 mb-sm-0"><i></i><a href="{{ route('checkout') }}">BUY NOW</a></button>
                                     </div>
                                     <hr>

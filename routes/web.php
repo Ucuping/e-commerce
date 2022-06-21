@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\Backend\Order\OrderController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Frontend\Home\HomeController;
+use App\Http\Controllers\Frontend\Cart\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,14 @@ use Illuminate\Support\Facades\Route;
 // Customers
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product-detail', [HomeController::class, 'detail'])->name('detail');
-Route::get('/cart', [HomeController::class, 'keranjang'])->name('cart');
+// Route::get('/cart', [HomeController::clas/s, 'keranjang'])->name('cart');
 Route::get('/checkout', [HomeController::class, 'co'])->name('checkout');
 Route::get('/brandshoes', [HomeController::class, 'brand'])->name('brands');
+Route::prefix('carts')->group(function () {
+    Route::get('', [CartController::class, 'index'])->name('carts');
+    Route::post('store', [CartController::class, 'store'])->name('carts.store');
+    
+});
 // Route::get('/cart', function(){
 //     return view('cart');
 // });

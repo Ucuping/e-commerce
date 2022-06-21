@@ -92,12 +92,12 @@
                     <div class="item-wrapper">
                         <div class="item-rating">
                             <div class="badge badge-primary badge-md">
-                                <span>4</span> <i class="feather icon-star"></i>
+                                <span>{{ $item['stock'] }}</span>
                             </div>
                         </div>
                         <div class="item-cost">
                             <h6 class="item-price">
-                                {{ $item['price'] }}
+                                Rp. {{ number_format($item['price']) }}
                             </h6>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         <i class="fa fa-heart-o"></i> <span>Wishlist</span>
                     </div>
                     <div class="cart">
-                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="{{ route('cart') }}" class="view-in-cart d-none">View In Cart</a>
+                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="{{ route('carts') }}" class="view-in-cart d-none">View In Cart</a>
                     </div>
                 </div>
             </div>
@@ -124,9 +124,9 @@
     <section id="ecommerce-pagination">
         <div class="row">
             <div class="col-sm-12">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center mt-2">
-                        <li class="page-item prev-item"><a class="page-link" href="#"></a></li>
+                {{-- <nav aria-label=""> --}}
+                    <ul class="pagination justify-content-center mt-2 mb-3">
+                        {{-- <li class="page-item prev-item"><a class="page-link" href="#"></a></li>
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
@@ -134,9 +134,11 @@
                         <li class="page-item"><a class="page-link" href="#">5</a></li>
                         <li class="page-item"><a class="page-link" href="#">6</a></li>
                         <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item next-item"><a class="page-link" href="#"></a></li>
+                        <li class="page-item next-item"><a class="page-link" href="#"></a></li> --}}
+                        {{ $products->links() }}
+                        {{-- <li class="page-item"></li> --}}
                     </ul>
-                </nav>
+                {{-- </nav> --}}
             </div>
         </div>
     </section>

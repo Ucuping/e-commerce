@@ -12,14 +12,18 @@ class HomeController extends Controller
     {
         $query = null;
         if(isset($request->search) and $request->search != ''){
-            $query = Product::where('name', 'LIKE', '%' . $request->search . '%')->get();
+            $query = Product::where('name', 'LIKE', '%' . $request->search . '%')->paginate(10);
         } elseif(isset($request->category) and $request->category != '') {
             $query = Product::whereHas('productCategory', function($q) use ($request){
                 $q->where('name', 'LIKE', '%' . $request->category . '%');
-            })->get();
+            })->paginate(10);
+        } else if(isset($request->brand) and $request->brand != '') {
+            $query = Product::whereHas('brand', function ($q) use($request) {
+                $q->where('name', 'LIKE', '%' . $request->brand . '%');
+            })->paginate(10);
         }
          else {
-            $query = Product::get();
+            $query = Product::paginate(10);
         }
         $data = [
             'title' => 'Main',
@@ -39,14 +43,14 @@ class HomeController extends Controller
         return view('frontend.product-detail.index', $data);
     }
 
-    public function keranjang()
-    {
-        $data = [
-            'title' => 'Keranjang Produk'
-        ];
+    // public function keranjang()
+    // {
+    //     $data = [
+    //         'title' => 'Keranjang Produk'
+    //     ];
 
-        return view('frontend.cart.index', $data);
-    }
+    //     return view('frontend.cart.index', $data);
+    // }
 
     public function co()
     {
