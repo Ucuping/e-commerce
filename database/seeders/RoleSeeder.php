@@ -30,6 +30,8 @@ class RoleSeeder extends Seeder
             'read-dashboard',
             'read-products', 'create-products', 'update-products', 'delete-products',
             'read-orders', 'create-orders', 'update-orders', 'delete-orders',
+            'read-users', 'create-users', 'update-users', 'delete-users',
+            'read-brands', 'create-brands', 'update-brands', 'delete-brands',
         ]);
 
         $customer->givePermissionTo([

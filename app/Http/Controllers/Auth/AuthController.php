@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Customer;
 use App\Models\Seller;
 use Illuminate\Http\Request;
@@ -86,6 +87,8 @@ class AuthController extends Controller
                 'name' => 'required',
                 'phone' => 'required',
                 'address' => 'required',
+                'brand_name' => 'required_if:brand_name,!=,null',
+                'brand_description' => 'required_if:brand_description,!=,null',
                 'username' => 'required|unique:users',
                 'email' => 'required|unique:users',
                 'password' => 'required|confirmed',
@@ -107,6 +110,12 @@ class AuthController extends Controller
                     'address' => $request->address,
                     'phone' => $request->phone,
                     'created_at' => Carbon::now(),
+                ]);
+
+                $brand = Brand::create([
+                    'seller_id' => $seller->id,
+                    'name' => $request->brand_name,
+                    'description' => $request->brand_description
                 ]);
             }
 

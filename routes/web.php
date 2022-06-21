@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Backend\Brand\BrandController;
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\Backend\Order\OrderController;
 use App\Http\Controllers\Backend\Product\ProductController;
+use App\Http\Controllers\Backend\User\UserController;
 use App\Http\Controllers\Frontend\Home\HomeController;
 use App\Http\Controllers\Frontend\Cart\CartController;
 use Illuminate\Support\Facades\Route;
@@ -66,5 +68,17 @@ Route::prefix('seller')->middleware('can:read-dashboard')->group(function () {
         Route::get('', [OrderController::class, 'index'])->name('seller.orders');
         Route::get('getData', [OrderController::class, 'getData'])->name('seller.orders.getData');
         Route::get('{detailOrder}/detail', [OrderController::class, 'detail'])->name('seller.orders.detail');
+    });
+
+    // Users
+    Route::prefix('profiles')->middleware('can:read-users')->group(function () {
+        Route::get('', [UserController::class, 'index'])->name('seller.profiles');
+        Route::post('{user}/update', [UserController::class, 'update'])->middleware('can:update-users')->name('seller.profiles.update');
+    });
+
+    // Brands
+    Route::prefix('brands')->middleware('can:read-brands')->group(function () {
+        Route::get('', [BrandController::class, 'index'])->name('seller.brands');
+        Route::post('{brand}/update', [BrandController::class, 'update'])->middleware('can:update-brands')->name('seller.brands.update');
     });
 });

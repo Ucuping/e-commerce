@@ -51,13 +51,13 @@
             </div>
             <div class="content-body">
                 <section class="row flexbox-container">
-                    <div class="col-xl-8 col-10 d-flex justify-content-center">
+                    <div class="col-xl-6 col-12 justify-content-center">
                         <div class="card bg-authentication rounded-0 mb-0">
                             <div class="row m-0">
-                                <div class="col-lg-6 d-lg-block d-none text-center align-self-center pl-0 pr-3 py-0">
+                                {{-- <div class="col-lg-6 d-lg-block d-none text-center align-self-center pl-0 pr-3 py-0">
                                     <img src="{{ asset('app-assets/images/pages/register.jpg') }}" alt="branding logo">
-                                </div>
-                                <div class="col-lg-6 col-12 p-0">
+                                </div> --}}
+                                <div class="col-lg-12 col-6 p-0">
                                     <div class="card rounded-0 mb-0 p-2">
                                         <div class="card-header pt-50 pb-1">
                                             <div class="card-title">
@@ -69,34 +69,6 @@
                                             <div class="card-body pt-0">
                                                 <form action="{{ route('auth.register.check') }}" method="POST" data-request="ajax" data-redirect="true" data-success-callback="{{ route('auth.login') }}">
                                                     @csrf
-                                                    <div class="form-label-group">
-                                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
-                                                        <label for="name">Name</label>
-                                                    </div>
-                                                    <div class="form-label-group">
-                                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
-                                                        <label for="phone">Phone Number</label>
-                                                    </div>
-                                                    <div class="form-label-group">
-                                                        <textarea name="address" class="form-control" id="address" placeholder="Address" required></textarea>
-                                                        <label for="address">Address</label>
-                                                    </div>
-                                                    <div class="form-label-group">
-                                                        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
-                                                        <label for="username">Username</label>
-                                                    </div>
-                                                    <div class="form-label-group">
-                                                        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required>
-                                                        <label for="inputEmail">Email</label>
-                                                    </div>
-                                                    <div class="form-label-group">
-                                                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                                                        <label for="inputPassword">Password</label>
-                                                    </div>
-                                                    <div class="form-label-group">
-                                                        <input type="password" id="inputConfPassword" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
-                                                        <label for="inputConfPassword">Confirm Password</label>
-                                                    </div>
                                                     <div class="form-label-group">
                                                         <ul class="list-unstyled mb-0">
                                                             <li class="d-inline-block mr-2">
@@ -124,6 +96,35 @@
                                                                 </fieldset>
                                                             </li>
                                                         </ul>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                                                        <label for="name">Name</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                                                        <label for="phone">Phone Number</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <textarea name="address" class="form-control" id="address" placeholder="Address" required></textarea>
+                                                        <label for="address">Address</label>
+                                                    </div>
+                                                    <div class="brand-input"></div>
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+                                                        <label for="username">Username</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required>
+                                                        <label for="inputEmail">Email</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                                        <label for="inputPassword">Password</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="password" id="inputConfPassword" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+                                                        <label for="inputConfPassword">Confirm Password</label>
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="col-12">
@@ -173,6 +174,7 @@
     <script src="{{ asset('app-assets/js/core/app.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('mods/mod_auth.js') }}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->

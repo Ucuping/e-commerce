@@ -31,7 +31,9 @@ class ProductController extends Controller
 
     public function getData()
     {
-        return DataTables::of(Product::with('productCategory')->get())->make(true);
+        return DataTables::of(Product::whereHas('brand', function ($q) {
+            $q->where('seller_id', getInfoLogin()->seller_id);
+        })->with('productCategory')->get())->make(true);
     }
 
     /**
@@ -66,7 +68,7 @@ class ProductController extends Controller
                 $picName = null;
             }
 
-            $brand = Brand::whereSellerId(auth()->user()->seller_id)->first();
+            $brand = Brand::whereSellerId(getInfoLogin()->seller_id)->first();
 
             // return dd($brand->id);
 
