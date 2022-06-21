@@ -27,9 +27,9 @@
             
             <li class=" navigation-header"><span>Settings</span>
             </li>
-            <li class=" nav-item"><a href="app-email.html"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Email">Profile</span></a>
+            <li class=" nav-item"><a href="{{ route('seller.profiles') }}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Email">Profile</span></a>
             </li>
-            <li class=" nav-item"><a href="app-email.html"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Email">Brand</span></a>
+            <li class=" nav-item"><a href="{{ route('seller.brands') }}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Email">Brand</span></a>
             </li>
         </ul>
     </div>
