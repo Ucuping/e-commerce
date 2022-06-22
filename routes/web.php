@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\User\UserController;
 use App\Http\Controllers\Frontend\Home\HomeController;
 use App\Http\Controllers\Frontend\Cart\CartController;
 use App\Http\Controllers\Frontend\Order\OrderController as FrontendOrderController;
+use App\Http\Controllers\Frontend\Product\ProductController as FrontendProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,10 @@ Route::prefix('carts')->group(function () {
 Route::prefix('checkouts')->group(function () {
     Route::post('', [FrontendOrderController::class, 'index'])->name('checkouts');
     Route::post('pay', [FrontendOrderController::class, 'store'])->name('checkouts.pay');
+});
+
+Route::prefix('products')->group(function () {
+    Route::get('{product}/detail', [FrontendProductController::class, 'index'])->name('forntend.products.detail');
 });
 // Route::get('/cart', function(){
 //     return view('cart');

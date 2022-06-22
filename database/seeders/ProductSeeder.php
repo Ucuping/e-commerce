@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
         Product::insert(
             [
                 [
-                    'brand_id' => 1,
+                    'brand_id' => 2,
                     'product_category_id' => 1,
                     'name' => 'Nike Air Hurache',
                     'price' => 1000000,
@@ -27,7 +27,7 @@ class ProductSeeder extends Seeder
                     'description' => 'Nike Limited',
                 ],
                 [
-                    'brand_id' => 2,
+                    'brand_id' => 1,
                     'product_category_id' => 2,
                     'name' => 'Adidas',
                     'price' => 1500000,

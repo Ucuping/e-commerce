@@ -54,7 +54,7 @@
         <div class="card ecommerce-card h-100">
             <div class="card-content">
                 <div class="item-img text-center">
-                    <a href="{{ route('detail') }}">
+                    <a href="{{ route('forntend.products.detail', ['product' => $item->id]) }}">
                         <img class="card-img-top" src="{{ asset('assets/images/products/' . $item->image) }}" alt="img-placeholder"></a>
                 </div>
                 <div class="card-body">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="item-name">
-                        <a href="{{ route('detail') }}">{{ $item->name }}</a>
+                        <a href="{{ route('forntend.products.detail', ['product' => $item->id]) }}">{{ $item->name }}</a>
                         <p class="item-company">By <span class="company-name">{{ $item->brand->name }}</span></p>
                     </div>
                     <div>
