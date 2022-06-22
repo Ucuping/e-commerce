@@ -11,16 +11,8 @@
                         <button class="navbar-toggler shop-sidebar-toggler" type="button" data-toggle="collapse">
                             <span class="navbar-toggler-icon d-block d-lg-none"><i class="feather icon-menu"></i></span>
                         </button>
-                        <div class="search-results">
-                            16285 results found
-                        </div>
                     </div>
                     <div class="view-options">
-                        <select class="price-options form-control" id="ecommerce-price-options">
-                            <option selected>Featured</option>
-                            <option value="1">Lowest</option>
-                            <option value="2">Highest</option>
-                        </select>
                         <div class="view-btn-option">
                             <button class="btn btn-white view-btn grid-view-btn active">
                                 <i class="feather icon-grid"></i>
@@ -59,32 +51,32 @@
     <!-- Ecommerce Products Starts -->
     <section id="ecommerce-products" class="grid-view">
         @forelse ($products as $item)
-        <div class="card ecommerce-card">
+        <div class="card ecommerce-card h-100">
             <div class="card-content">
                 <div class="item-img text-center">
                     <a href="{{ route('detail') }}">
-                        <img class="img-fluid" src="{{ asset('assets/images/products/' . $item['image']) }}" alt="img-placeholder"></a>
+                        <img class="card-img-top" src="{{ asset('assets/images/products/' . $item->image) }}" alt="img-placeholder"></a>
                 </div>
                 <div class="card-body">
                     <div class="item-wrapper">
                         <div class="item-rating">
                             <div class="badge badge-primary badge-md">
-                                <span>4</span> <i class="feather icon-star"></i>
+                                <span>{{ $item->stock - $item->orderDetail->pluck('quantity')->count() }}</span>
                             </div>
                         </div>
                         <div>
                             <h6 class="item-price">
-                                {{ $item['price'] }}
+                                Rp. {{ number_format($item->price) }}
                             </h6>
                         </div>
                     </div>
                     <div class="item-name">
-                        <a href="{{ route('detail') }}">{{ $item['product_name'] }}</a>
-                        <p class="item-company">By <span class="company-name">Nike</span></p>
+                        <a href="{{ route('detail') }}">{{ $item->name }}</a>
+                        <p class="item-company">By <span class="company-name">{{ $item->brand->name }}</span></p>
                     </div>
                     <div>
                         <p class="item-description">
-                            {{ $item['description'] }}
+                            {{ $item->description }}
                         </p>
                     </div>
                 </div>
@@ -92,12 +84,12 @@
                     <div class="item-wrapper">
                         <div class="item-rating">
                             <div class="badge badge-primary badge-md">
-                                <span>{{ $item['stock'] }}</span>
+                                <span>{{ $item->stock - $item->orderDetail->pluck('quantity')->count() }}</span>
                             </div>
                         </div>
                         <div class="item-cost">
                             <h6 class="item-price">
-                                Rp. {{ number_format($item['price']) }}
+                                Rp. {{ number_format($item->price) }}
                             </h6>
                         </div>
                     </div>
@@ -105,7 +97,7 @@
                         <i class="fa fa-heart-o"></i> <span>Wishlist</span>
                     </div>
                     <div class="cart">
-                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Add to cart</span> <a href="{{ route('carts') }}" class="view-in-cart d-none">View In Cart</a>
+                        <i class="feather icon-shopping-cart"></i> <span class="add-to-cart" data-toggle="add-to-cart" data-id="{{ $item->id }}">Add to cart</span> <a href="{{ route('carts') }}" class="view-in-cart d-none">View In Cart</a>
                     </div>
                 </div>
             </div>

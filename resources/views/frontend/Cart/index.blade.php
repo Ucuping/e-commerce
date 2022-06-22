@@ -3,7 +3,7 @@
 @section('content')
     @include('frontend.layouts.partials.navbar')
     <!-- BEGIN: Content-->
-    <div class="app-content content">
+    {{-- <div class="app-content content"> --}}
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
@@ -35,17 +35,16 @@
                                     <div class="card-content">
                                         <div class="item-img text-center">
                                             <a href="{{ route('detail') }}">
-                                                <img src="{{ asset('assets/iamges/products/' . $cart->product->name) }}" alt="img-placeholder">
+                                                <img class="img-fluid" src="{{ asset('assets/images/products/' . $cart->product->image) }}" alt="img-placeholder">
                                             </a>
                                         </div>
                                         <div class="card-body">
                                             <div class="item-name">
-                                                <a href="{{ route('brands') }}">ADIDAS STAN SMITH WHITE GREEN ORIGINAL
-                                                    INDONESIA 100% BNWB</a>
+                                                <a href="{{ route('brands') }}">{{ $cart->product->name }}</a>
                                                 <span></span>
-                                                <p class="item-company">By <span class="company-name">Adidas Official</span>
+                                                <p class="item-company">By <span class="company-name">{{ $cart->product->brand->name }}</span>
                                                 </p>
-                                                <p class="stock-status-in">In Stock</p>
+                                                <p class="stock-status-{{ $cart->product->stock > 0 ? 'in' : 'out' }}">{{ $cart->product->stock > 0 ? 'In Stock' : 'Sold Out' }}</p>
                                             </div>
                                             <div class="item-quantity">
                                                 <p class="quantity-title">Quantity</p>
@@ -53,26 +52,24 @@
                                                     <input type="text" class="quantity-counter" value="1">
                                                 </div>
                                             </div>
-                                            <p class="delivery-date">Delivery by, Wed Apr 25</p>
-                                            <p class="offers">17% off 4 offers Available</p>
                                         </div>
                                         <div class="item-options text-center">
                                             <div class="item-wrapper">
                                                 <div class="item-rating">
                                                     <div class="badge badge-primary badge-md">
-                                                        4 <i class="feather icon-star ml-25"></i>
+                                                        {{ $cart->product->stock }}
                                                     </div>
                                                 </div>
                                                 <div class="item-cost">
                                                     <h6 class="item-price">
-                                                        RP500.000
+                                                        Rp. {{ number_format($cart->product->price, 0, ',', '.') }}
                                                     </h6>
-                                                    <p class="shipping">
+                                                    {{-- <p class="shipping">
                                                         <i class="feather icon-shopping-cart"></i> Free Shipping
-                                                    </p>
+                                                    </p> --}}
                                                 </div>
                                             </div>
-                                            <div class="wishlist remove-wishlist">
+                                            <div class="wishlist remove-wishlist remove-cart" data-toggle="delete" data-id="{{ $cart->id }}">
                                                 <i class="feather icon-x align-middle"></i> Remove
                                             </div>
                                             <div class="cart remove-wishlist">
@@ -83,85 +80,104 @@
                                 </div>
                                 
                             @empty
-                                <h5>cart not found</h5>
+                                {{-- <div class="card ecommerce-card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <h5>Carts Not Found</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                                <div class="text-center mt-5 p-5">
+                                    <h4>Carts Not Found</h4>
+                                    @if (getInfoLogin() != null)
+                                        <p><a href="{{ route('home') }}">Add product to cart</a></p>
+                                    @else
+                                        <p>You are not login, <a href="{{ route('auth.login') }}">login in here</a></p>
+                                    @endif
+                                </div>
                             @endforelse
-                            
-
+                        </div>
                         <!-- app ecommerce options cart start -->
                         <div class="checkout-options col-md-6">
-                            <div class="card">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <p class="options-title">Options</p>
-                                        <div class="coupons">
-                                            <div class="coupons-title">
-                                                <p>Coupons</p>
+                            <form action="{{ route('checkouts') }}" method="post">
+                                @csrf
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            @php
+                                                $total = 0;
+                                            @endphp
+                                            <div class="price-details">
+                                                <p>Price Details</p>
                                             </div>
-                                            <div class="apply-coupon">
-                                                <p>Apply</p>
+                                            @foreach ($carts as $item)
+                                                <div class="detail">
+                                                    <div class="detail-title">
+                                                        {{ $item->product->name }}
+                                                    </div>
+                                                    <div class="detail-amt">
+                                                        Rp. {{ number_format($item->product->price, 0, ',', '.') }} x {{ $item->quantity }}
+                                                    </div>
+                                                </div>
+                                                @php
+                                                    $total += $item->product->price * $item->quantity;
+                                                @endphp
+                                                <div class="form-group">
+                                                    <input type="hidden" name="customer_id[]" class="form-control" value="{{ $item->customer_id }}">
+                                                </div>
+                                            @endforeach
+                                            {{-- <div class="detail">
+                                                <div class="detail-title">
+                                                    Bag Discount
+                                                </div>
+                                                <div class="detail-amt discount-amt">
+                                                    -25$
+                                                </div>
                                             </div>
+                                            <div class="detail">
+                                                <div class="detail-title">
+                                                    Estimated Tax
+                                                </div>
+                                                <div class="detail-amt">
+                                                    $1.3
+                                                </div>
+                                            </div>
+                                            <div class="detail">
+                                                <div class="detail-title">
+                                                    EMI Eligibility
+                                                </div>
+                                                <div class="detail-amt emi-details">
+                                                    Details
+                                                </div>
+                                            </div>
+                                            <div class="detail">
+                                                <div class="detail-title">
+                                                    Delivery Charges
+                                                </div>
+                                                <div class="detail-amt discount-amt">
+                                                    Free
+                                                </div>
+                                            </div> --}}
+                                            <hr>
+                                            <div class="detail">
+                                                <div class="detail-title detail-total">Total</div>
+                                                <div class="detail-amt total-amt">Rp. {{ number_format($total, 0, ',', '.') }}</div>
+                                            </div>
+                                            <button class="btn btn-primary btn-block place-order" type="submit" {{ getInfoLogin() == null ? 'disabled' : '' }}>CHECK OUT</button>
                                         </div>
-                                        <hr>
-                                        <div class="price-details">
-                                            <p>Price Details</p>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="detail-title">
-                                                Total MRP
-                                            </div>
-                                            <div class="detail-amt">
-                                                $598
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="detail-title">
-                                                Bag Discount
-                                            </div>
-                                            <div class="detail-amt discount-amt">
-                                                -25$
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="detail-title">
-                                                Estimated Tax
-                                            </div>
-                                            <div class="detail-amt">
-                                                $1.3
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="detail-title">
-                                                EMI Eligibility
-                                            </div>
-                                            <div class="detail-amt emi-details">
-                                                Details
-                                            </div>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="detail-title">
-                                                Delivery Charges
-                                            </div>
-                                            <div class="detail-amt discount-amt">
-                                                Free
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="detail">
-                                            <div class="detail-title detail-total">Total</div>
-                                            <div class="detail-amt total-amt">$574</div>
-                                        </div>
-                                        <a href="{{ route('checkout') }}"
-                                            class="btn btn-primary btn-block place-order">CHECK OUT</a>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                        <!-- app ecommerce options cart end -->
+                    </div>
+                    <!-- app ecommerce options cart end -->
                 </section>
                 <!-- app ecommerce details end -->
 
             </div>
         </div>
-    </div>
+    {{-- </div> --}}
     <!-- END: Content-->
 @endsection

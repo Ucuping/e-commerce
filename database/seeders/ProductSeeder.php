@@ -35,6 +35,15 @@ class ProductSeeder extends Seeder
                     'image' => 'adidas.jpg',
                     'description' => 'Adidas Limited',
                 ],
+                [
+                    'brand_id' => 3,
+                    'product_category_id' => 1,
+                    'name' => 'Vans Ultrarange Exo',
+                    'price' => 850000,
+                    'stock' => 27,
+                    'image' => 'vans-ultrange-exo.webp',
+                    'description' => 'Always ready for the unexpected We believe that adventure begins when things go sideways, so we developed a shoe that would not only stand up to the journey, but keep you comfortable in the most uncomfortable of situations. Armed with a co-molded UltraCush midsole, updated RapidWeld detailing, a lightweight, die-cut rubber outsole, and a breathable Old Skool-inspired upper, this is the UltraRange—evolved. The UltraRange EXO is made with elevated textile and synthetic uppers. • FULL SUPPORT - EXO Skeleton provides built-in support across the toes and medial sidewall, with a heel lock for a secure fit. • ULTRACUSH® FOR COMFORT - The co-molded UltraCush® Lite midsole increases comfort, not weight. • ALL-TERRAIN GRIP - Full rubber-wrapped reverse waffle lug outsoles improve traction and flexibility. • INCREASED BREATHABILITY - An UltraCush® tongue with breathability ports offers superior airflow.',
+                ],
             ]
         );
     }

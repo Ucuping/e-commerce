@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Backend\Brand\BrandController;
+use App\Http\Controllers\Backend\Checkout\CheckoutController;
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
 use App\Http\Controllers\Backend\Order\OrderController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\User\UserController;
 use App\Http\Controllers\Frontend\Home\HomeController;
 use App\Http\Controllers\Frontend\Cart\CartController;
+use App\Http\Controllers\Frontend\Order\OrderController as FrontendOrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,12 +27,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product-detail', [HomeController::class, 'detail'])->name('detail');
 // Route::get('/cart', [HomeController::clas/s, 'keranjang'])->name('cart');
-Route::get('/checkout', [HomeController::class, 'co'])->name('checkout');
+// Route::get('/checkout', [HomeController::class, 'co'])->name('checkout');
 Route::get('/brandshoes', [HomeController::class, 'brand'])->name('brands');
 Route::prefix('carts')->group(function () {
     Route::get('', [CartController::class, 'index'])->name('carts');
-    Route::post('store', [CartController::class, 'store'])->name('carts.store');
-    
+    Route::post('add-to-cart', [CartController::class, 'store'])->name('carts.store');
+    Route::delete('{cart}/delete', [CartController::class, 'destroy'])->name('carts.delete');
+});
+Route::prefix('checkouts')->group(function () {
+    Route::post('', [FrontendOrderController::class, 'index'])->name('checkouts');
+    Route::post('pay', [FrontendOrderController::class, 'store'])->name('checkouts.pay');
 });
 // Route::get('/cart', function(){
 //     return view('cart');
