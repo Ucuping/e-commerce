@@ -73,7 +73,7 @@ Route::prefix('seller')->middleware('can:read-dashboard')->group(function () {
     Route::prefix('orders')->middleware('can:read-orders')->group(function () {
         Route::get('', [OrderController::class, 'index'])->name('seller.orders');
         Route::get('getData', [OrderController::class, 'getData'])->name('seller.orders.getData');
-        Route::get('{detailOrder}/detail', [OrderController::class, 'detail'])->name('seller.orders.detail');
+        Route::get('{orderDetail}/detail', [OrderController::class, 'detail'])->name('seller.orders.detail');
     });
 
     // Users

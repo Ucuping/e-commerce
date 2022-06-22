@@ -21,8 +21,8 @@ return new class extends Migration
             $table->enum('delivery_method', ['cod', 'non-cod']);
             $table->date('order_date');
             $table->double('pay');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

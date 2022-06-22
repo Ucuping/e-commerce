@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="paymentForm" action="{{ route('checkouts.pay') }}" data-success-callback="{{ route('home') }}" method="POST" data-toggle="pay">
+            <form id="paymentForm" action="{{ route('checkouts.pay') }}" data-success-callback="{{ route('home') }}" data-redirect="true" method="POST" data-toggle="pay">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="payment_method">Payment Method <span class="text-danger">*</span></label>

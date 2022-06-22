@@ -41,7 +41,7 @@ class OrderController extends Controller
                 $orderDetail = OrderDetail::create([
                     'product_id' => $value->product_id,
                     'order_id' => $order->id,
-                    'amount' => $request->pay,
+                    'amount' => $value->product->price,
                     'quantity' => $value->quantity,
                     'subtotal' => $value->product->price * $value->quantity
                 ]);

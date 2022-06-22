@@ -50,7 +50,7 @@ table = initTable('#dataTable', [{
             var render = ``
 
             if (userPermissions.includes('read-orders')) {
-                render += `<a href="${$('meta[name=base-url]').attr('content')}/seller/orders/${data}/detail" class="btn btn-outline-primary btn-sm"><i class="feather icon-eye"></i></a> `
+                render += `<a href="${$('meta[name=base-url]').attr('content')}/seller/orders/${row.order_id}/detail" class="btn btn-outline-primary btn-sm"><i class="feather icon-eye"></i></a> `
             }
 
             // if (userPermissions.includes('delete-products')) {

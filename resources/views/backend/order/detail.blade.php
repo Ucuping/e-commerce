@@ -38,7 +38,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Price</td>
-                                        <td>{{ $detailOrder->product->price }}</td>
+                                        <td>Rp. {{ number_format($detailOrder->product->price) }}</td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold pr-3">Customer</td>
@@ -62,11 +62,12 @@
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold pr-3">Pay</td>
-                                        <td>{{ number_format($detailOrder->order->pay) }}</td>
+                                        {{-- {{ dd($detailOrder->order) }} --}}
+                                        <td>Rp. {{ number_format($detailOrder->order->pay) }}</td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Amount</td>
-                                        <td>{{ number_format($detailOrder->amount) }}</td>
+                                        <td>Rp. {{ number_format($detailOrder->amount) }}</td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Quantity</td>
@@ -74,7 +75,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Subtotal</td>
-                                        <td>{{ number_format($detailOrder->subtotal) }}</td>
+                                        <td>Rp. {{ number_format($detailOrder->subtotal) }}</td>
                                     </tr>
                                 </table>
                             </div>

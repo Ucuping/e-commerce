@@ -50,15 +50,18 @@ class OrderController extends Controller
             ->addColumn('pay', function ($data) {
                 return number_format($data->order->pay);
             })
+            ->addColumn('order_id', function ($data) {
+                return $data->order->id;
+            })
             ->make(true);
     }
 
     public function detail(OrderDetail $orderDetail)
     {
-        // return dd($orderDetail->with(['order', 'product', 'order.customer', 'product.brand'])->first());
+        // return dd($orderDetail->order);
         $data = [
             'title' => 'Detail Order',
-            'detailOrder' => $orderDetail->with(['order', 'product', 'order.customer', 'product.brand'])->first()
+            'detailOrder' => $orderDetail
         ];
 
         return view('backend.order.detail', $data);
