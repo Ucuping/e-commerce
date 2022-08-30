@@ -78,6 +78,7 @@
                         <p class="item-description">
                             {{ $item->description }}
                         </p>
+                        <small class="text-light">{{ $item->productCategory->name }}</small>
                     </div>
                 </div>
                 <div class="item-options text-center">

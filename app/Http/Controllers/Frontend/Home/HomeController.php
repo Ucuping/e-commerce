@@ -11,19 +11,18 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $query = null;
-        if(isset($request->search) and $request->search != ''){
-            $query = Product::where('name', 'LIKE', '%' . $request->search . '%')->paginate(10);
-        } elseif(isset($request->category) and $request->category != '') {
-            $query = Product::whereHas('productCategory', function($q) use ($request){
+        if (isset($request->search) and $request->search != '') {
+            $query = Product::where('name', 'LIKE', '%' . $request->search . '%')->with('productCategory')->paginate(10);
+        } elseif (isset($request->category) and $request->category != '') {
+            $query = Product::whereHas('productCategory', function ($q) use ($request) {
                 $q->where('name', 'LIKE', '%' . $request->category . '%');
-            })->paginate(10);
-        } else if(isset($request->brand) and $request->brand != '') {
-            $query = Product::whereHas('brand', function ($q) use($request) {
+            })->with('productCategory')->paginate(10);
+        } else if (isset($request->brand) and $request->brand != '') {
+            $query = Product::whereHas('brand', function ($q) use ($request) {
                 $q->where('name', 'LIKE', '%' . $request->brand . '%');
-            })->paginate(10);
-        }
-         else {
-            $query = Product::paginate(10);
+            })->with('productCategory')->paginate(10);
+        } else {
+            $query = Product::with('productCategory')->paginate(10);
         }
         $data = [
             'title' => 'Main',
