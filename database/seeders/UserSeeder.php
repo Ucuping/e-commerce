@@ -28,6 +28,16 @@ class UserSeeder extends Seeder
 
         User::create(
             [
+                'customer_id' => null,
+                'seller_id' => 2,
+                'username' => 'depi',
+                'email' => 'depi@mail.com',
+                'password' => Hash::make('1234'),
+            ],
+        )->assignRole('Seller');
+
+        User::create(
+            [
                 'customer_id' => 1,
                 'seller_id' => null,
                 'username' => 'andi',
